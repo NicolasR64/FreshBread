@@ -1,6 +1,6 @@
 package com.helha.FreshBread.models;
 
-public class product {
+public class Product {
 
     // Attribute
     private int id;
