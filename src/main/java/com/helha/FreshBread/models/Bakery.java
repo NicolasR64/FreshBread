@@ -1,19 +1,24 @@
 package com.helha.FreshBread.models;
 
-public class implentation {
+public class Bakery {
     // Attribute
 
+    private int id;
     private String name;
     private String address;
 
     // Contructor
 
-    public implentation(String name, String address) {
+    public Bakery(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
     // Getters and Setters
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -31,3 +36,4 @@ public class implentation {
         this.address = address;
     }
 }
+
