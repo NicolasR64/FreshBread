@@ -1,6 +1,6 @@
 package com.helha.FreshBread.models;
 
-public class bakery {
+public class Bakery {
     // Attribute
 
     private int id;
@@ -9,7 +9,7 @@ public class bakery {
 
     // Contructor
 
-    public bakery(String name, String address) {
+    public Bakery(String name, String address) {
         this.name = name;
         this.address = address;
     }
