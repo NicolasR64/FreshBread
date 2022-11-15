@@ -9,8 +9,7 @@ public class bakery {
 
     // Contructor
 
-    public bakery(int id, String name, String address) {
-        this.id = id;
+    public bakery(String name, String address) {
         this.name = name;
         this.address = address;
     }

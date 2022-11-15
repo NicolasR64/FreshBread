@@ -12,8 +12,7 @@ public class product {
 
     // Constructor
 
-    public product(int id, String name, float prix, int qty, String description, String image) {
-        this.id = id;
+    public product(String name, float prix, int qty, String description, String image) {
         this.name = name;
         this.prix = prix;
         this.qty = qty;
