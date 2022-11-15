@@ -10,14 +10,17 @@ public class Order {
     private LocalDateTime date;
     private Implentation implentation;
     private String products;
+    private String state;
 
     // Contructor
 
-    public Order(LocalDateTime  date, Implentation implentation, String products) {
+    public Order(LocalDateTime date, Implentation implentation, String products, String state) {
         this.date = LocalDateTime.now();
         this.implentation = implentation;
         this.products = products;
+        this.state = state;
     }
+
 
     // Getters and Setters
 
@@ -47,5 +50,13 @@ public class Order {
 
     public void setProducts(String products) {
         this.products = products;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

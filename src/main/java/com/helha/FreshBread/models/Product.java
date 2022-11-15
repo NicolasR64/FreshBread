@@ -7,17 +7,17 @@ public class Product {
     private String name;
     private float price;
     private int qty;
-    private String description;
-    private String image;
+    private String desc;
+    private String picture;
 
     // Constructor
 
-    public Product(String name, float prix, int qty, String description, String image) {
+    public Product(String name, float prix, int qty, String desc, String picture) {
         this.name = name;
         this.price = prix;
         this.qty = qty;
-        this.description = description;
-        this.image = image;
+        this.desc = desc;
+        this.picture = picture;
     }
 
     // Getters and Setters
@@ -50,19 +50,19 @@ public class Product {
         this.qty = qty;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getImage() {
-        return image;
+        return picture;
     }
 
     public void setImage(String image) {
-        this.image = image;
+        this.picture = picture;
     }
 }
