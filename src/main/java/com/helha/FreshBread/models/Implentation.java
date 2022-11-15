@@ -1,6 +1,6 @@
 package com.helha.FreshBread.models;
 
-public class implentation {
+public class Implentation {
     // Attribute
 
     private String name;
@@ -8,7 +8,7 @@ public class implentation {
 
     // Contructor
 
-    public implentation(String name, String address) {
+    public Implentation(String name, String address) {
         this.name = name;
         this.address = address;
     }
