@@ -5,16 +5,16 @@ public class Product {
     // Attribute
     private int id;
     private String name;
-    private float prix;
+    private float price;
     private int qty;
     private String description;
     private String image;
 
     // Constructor
 
-    public product(String name, float prix, int qty, String description, String image) {
+    public Product(String name, float prix, int qty, String description, String image) {
         this.name = name;
-        this.prix = prix;
+        this.price = prix;
         this.qty = qty;
         this.description = description;
         this.image = image;
@@ -34,12 +34,12 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrix() {
-        return prix;
+    public float getPrice() {
+        return price;
     }
 
-    public void setPrix(float prix) {
-        this.prix = prix;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public int getQty() {
