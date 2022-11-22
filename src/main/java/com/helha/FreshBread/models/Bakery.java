@@ -7,11 +7,14 @@ public class Bakery {
     private String name;
     private String address;
 
+    private int userId;
+
     // Contructor
 
-    public Bakery(String name, String address) {
+    public Bakery(String name, String address, int userId) {
         this.name = name;
         this.address = address;
+        this.userId = userId;
     }
 
     // Getters and Setters
@@ -35,5 +38,10 @@ public class Bakery {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
 }
 
