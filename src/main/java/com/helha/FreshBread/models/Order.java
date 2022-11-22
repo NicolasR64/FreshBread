@@ -12,13 +12,16 @@ public class Order {
     private String products;
     private String state;
 
+    private int userId;
+
     // Contructor
 
-    public Order(LocalDateTime date, Implantation implantation, String products, String state) {
+    public Order(LocalDateTime date, Implantation implantation, String products, String state, int userId) {
         this.date = LocalDateTime.now();
         this.implantation = implantation;
         this.products = products;
         this.state = state;
+        this.userId = userId;
     }
 
 
@@ -36,11 +39,11 @@ public class Order {
         this.date = date;
     }
 
-    public Implantation getImplentation() {
+    public Implantation getImplantation() {
         return implantation;
     }
 
-    public void setImplentation(Implantation implantationntation) {
+    public void setImplantation(Implantation implantation) {
         this.implantation = implantation;
     }
 
@@ -58,5 +61,9 @@ public class Order {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 }
