@@ -35,7 +35,7 @@ public class contRESTImplantation {
     /*
     @PutMapping(value = "/{id}")
     public Implantation putImplantationById(@RequestBody Implantation implantation, @PathVariable("id") int id){
-        return this.service.post(id, implantation);
+        return this.service.put(id, implantation);
     }
     */
 
