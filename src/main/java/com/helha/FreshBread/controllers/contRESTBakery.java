@@ -12,34 +12,34 @@ public class contRESTBakery {
 
     /*
     @GetMapping(produces = "application/json")
-    public Bakery[] getAllImplantation(){
+    public Bakery[] getAllBakery(){
         return this.service.getAll();
     }
      */
     /*
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Implantation getImplantationById(){
+    public Bakery getBakeryById(){
         return this.service.get(@PathVariable("id"));
     }
     */
 
     /*
     @PostMapping
-    public Implantation postImplantationById(@RequestBody Implantation implantation){
-        return this.service.post(implantation);
+    public Bakery postBakeryById(@RequestBody Bakery bakery){
+        return this.service.post(bakery);
     }
     */
 
     /*
     @PutMapping(value = "/{id}")
-    public Implantation putImplantationById(@RequestBody Implantation implantation, @PathVariable("id") int id){
-        return this.service.put(id, implantation);
+    public Bakery putBakeryById(@RequestBody Bakery bakery, @PathVariable("id") int id){
+        return this.service.put(id, bakery);
     }
     */
 
     /*
     @DeleteMapping(value = "/{id}")
-    public Implantation deleteImplantation(@PathVariable("id") int id){
+    public Bakery deleteBakery(@PathVariable("id") int id){
         return this.service.delete(id);
     }
     */
