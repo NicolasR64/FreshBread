@@ -25,7 +25,7 @@ public class contRESTOrder{
 
 
     @PostMapping
-    public Order postImplantation(@RequestBody Order order){
+    public Order postOrder(@RequestBody Order order){
             return this.repository.save(order);
             }
 

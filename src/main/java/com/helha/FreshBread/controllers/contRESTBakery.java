@@ -1,46 +1,50 @@
 package com.helha.FreshBread.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.helha.FreshBread.models.Bakery;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/bakery")
 public class contRESTBakery {
+    private final RepoBakery repository;
+    contRESTBakery(RepoBakery repository) {
+        this.repository = repository;
+    }
 
-    //@Autowired
-    //ISBakery service;
-
-    /*
     @GetMapping(produces = "application/json")
-    public Bakery[] getAllBakery(){
-        return this.service.getAll();
+    public List getAllBakery(){
+        return this.repository.findAll();
     }
-     */
-    /*
+
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Bakery getBakeryById(){
-        return this.service.get(@PathVariable("id"));
+    public Optional<Bakery> getBakeryById(@PathVariable("id") long id){
+        return this.repository.findById(id);
     }
-    */
 
-    /*
+
     @PostMapping
-    public Bakery postBakeryById(@RequestBody Bakery bakery){
-        return this.service.post(bakery);
+    public Bakery postBakery(@RequestBody Bakery bakery){
+        return this.repository.save(order);
     }
-    */
 
-    /*
     @PutMapping(value = "/{id}")
-    public Bakery putBakeryById(@RequestBody Bakery bakery, @PathVariable("id") int id){
-        return this.service.put(id, bakery);
-    }
-    */
+    public Optional<Bakery> putBakeryById(@RequestBody Bakery bakery, @PathVariable("id") long id){
 
-    /*
-    @DeleteMapping(value = "/{id}")
-    public Bakery deleteBakery(@PathVariable("id") int id){
-        return this.service.delete(id);
+        return this.repository.findById(id)
+                .map(newOrder -> {
+                    newBakery.setId(id);
+                    newBakery.setName(bakery.getName());
+                    newBakery.setAddress(bakery.getAddress());
+                    newBakery.setUserId(bakery.getUserId());
+                    return repository.save(newBakery);
+                });
     }
-    */
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteBakery(@PathVariable("id") long id){
+        this.repository.deleteById(id);
+    }
+}
 }
