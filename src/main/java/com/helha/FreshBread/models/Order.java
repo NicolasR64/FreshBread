@@ -1,8 +1,15 @@
 package com.helha.FreshBread.models;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
+@Entity
+@Getter
+@Setter
 public class Order {
     // Attribute
 
@@ -24,46 +31,4 @@ public class Order {
         this.userId = userId;
     }
 
-
-    // Getters and Setters
-
-    public int getId() {
-        return id;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Implantation getImplantation() {
-        return implantation;
-    }
-
-    public void setImplantation(Implantation implantation) {
-        this.implantation = implantation;
-    }
-
-    public String getProducts() {
-        return products;
-    }
-
-    public void setProducts(String products) {
-        this.products = products;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
 }
