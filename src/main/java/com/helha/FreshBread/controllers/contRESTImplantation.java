@@ -1,48 +1,52 @@
 package com.helha.FreshBread.controllers;
 
 import com.helha.FreshBread.models.Implantation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import com.helha.FreshBread.repositorys.RepoImplantation;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/implantation")
 public class contRESTImplantation {
 
-    //@Autowired
-    //ISImplantation service;
+    private final RepoImplantation repository;
+    contRESTImplantation(RepoImplantation repository) {
+        this.repository = repository;
+    }
 
-    /*
     @GetMapping(produces = "application/json")
-    public Implantation[] getAllImplantation(){
-        return this.service.getAll();
+    public List getAllImplantation(){
+        return this.repository.findAll();
     }
-     */
-    /*
+
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Implantation getImplantationById(){
-        return this.service.get(@PathVariable("id"));
+    public Optional<Implantation> getImplantationById(@PathVariable("id") long id){
+        return this.repository.findById(id);
     }
-    */
 
-    /*
+
     @PostMapping
-    public Implantation postImplantationById(@RequestBody Implantation implantation){
-        return this.service.post(implantation);
+    public Implantation postImplantation(@RequestBody Implantation implantation){
+        return this.repository.save(implantation);
     }
-    */
 
-    /*
     @PutMapping(value = "/{id}")
-    public Implantation putImplantationById(@RequestBody Implantation implantation, @PathVariable("id") int id){
-        return this.service.put(id, implantation);
-    }
-    */
+    public Optional<Implantation> putImplantationById(@RequestBody Implantation implantation, @PathVariable("id") long id){
 
-    /*
-    @DeleteMapping(value = "/{id}")
-    public Implantation deleteImplantation(@PathVariable("id") int id){
-        return this.service.delete(id);
+        return this.repository.findById(id)
+                .map(newImplantation -> {
+                    newImplantation.setId(id);
+                    newImplantation.setName(implantation.getName());
+                    newImplantation.setAddress(implantation.getAddress());
+                    return repository.save(newImplantation);
+                });
     }
-    */
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteImplantation(@PathVariable("id") long id){
+        this.repository.deleteById(id);
+    }
+
 }
