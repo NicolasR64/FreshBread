@@ -1,46 +1,52 @@
 package com.helha.FreshBread.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.helha.FreshBread.models.Order;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
-public class contRESTOrder {
+public class contRESTOrder{
+    private final RepoOrder repository;
+    contRESTOrder(RepoOrder repository) {
+        this.repository = repository;
+    }
 
-    //@Autowired
-    //ISOrder service;
-
-    /*
     @GetMapping(produces = "application/json")
-    public Order[] getAllOrder(){
-        return this.service.getAll();
-    }
-     */
-    /*
+    public List getAllOrder(){
+            return this.repository.findAll();
+            }
+
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Order getOrderById(){
-        return this.service.get(@PathVariable("id"));
-    }
-    */
+    public Optional<Order> getOrderById(@PathVariable("id") long id){
+            return this.repository.findById(id);
+            }
 
-    /*
+
     @PostMapping
-    public Order postOrderById(@RequestBody Order order){
-        return this.service.post(order);
-    }
-    */
+    public Order postImplantation(@RequestBody Order order){
+            return this.repository.save(order);
+            }
 
-    /*
     @PutMapping(value = "/{id}")
-    public Order putOrderById(@RequestBody Order order, @PathVariable("id") int id){
-        return this.service.put(id, order);
-    }
-    */
+    public Optional<Order> putOrderById(@RequestBody Order order, @PathVariable("id") long id){
 
-    /*
+            return this.repository.findById(id)
+            .map(newOrder -> {
+                newOrder.setId(id);
+                newOrder.setDate(order.getDate());
+                newOrder.setImplantation(order.getImplantation());
+                newOrder.setProducts(order.getProducts());
+                newOrder.setState(order.getState());
+                newOrder.setUserId(order.getUserId());
+            return repository.save(newOrder);
+            });
+            }
+
     @DeleteMapping(value = "/{id}")
-    public Order deleteOrder(@PathVariable("id") int id){
-        return this.service.delete(id);
+    public void deleteOrder(@PathVariable("id") long id){
+            this.repository.deleteById(id);
+            }
     }
-    */
 }
