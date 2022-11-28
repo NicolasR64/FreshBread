@@ -1,0 +1,64 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DB: 'helha_freshbread'
+      POSTGRES_PASSWORD: '1234'
+      PGDATA: pgdata
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./server/sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'admin@admin.be'
+      PGADMIN_DEFAULT_PASSWORD: '1234'
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - '8082:80'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - "postgres"
+
+  helha_freshbread-keycloak:
+    image: 'quay.io/keycloak/keycloak:20.0.1'
+    entrypoint: [ "/opt/keycloak/bin/kc.sh", "start-dev", "--import-realm" ]
+    hostname: 'helha-keycloak'
+    container_name: 'helha-keycloak'
+    environment:
+      PROXY_ADDRESS_FORWARDING: 'true'
+      KC_DB: 'postgres'
+      KC_DB_URL: 'jdbc:postgresql://postgres:5432/helha_freshbread?currentSchema=keycloak'
+      KC_DB_USERNAME: 'keycloak'
+      KC_DB_PASSWORD: '1234'
+      KC_HOSTNAME: 'localhost'
+      KC_DB_SCHEMA: 'keycloak'
+      KEYCLOAK_ADMIN: 'admin'
+      KEYCLOAK_ADMIN_PASSWORD: 'admin'
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME_STRICT: "false"
+    ports:
+      - '7320:8080'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - '/etc/timezone:/etc/timezone:ro'
+      - '/etc/localtime:/etc/localtime:ro'
+      - './server/bin/:/opt/keycloak/providers'
+      - './server/server-keycloak-themes/src/main/resources/theme:/opt/keycloak/themes'
+      - './config/helha-fresbread-realm-local.json:/opt/keycloak/data/import/helha-freshbread-realm-local.json'
+    depends_on:
+      - "postgres"
+
+volumes:
+  pgdata:
+  pgadmin:
