@@ -8,7 +8,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/bakery")
 public class contRESTBakery {
-    private final RepoBakery repository;
+    /*private final RepoBakery repository;
     contRESTBakery(RepoBakery repository) {
         this.repository = repository;
     }
@@ -45,6 +45,5 @@ public class contRESTBakery {
     @DeleteMapping(value = "/{id}")
     public void deleteBakery(@PathVariable("id") long id){
         this.repository.deleteById(id);
-    }
-}
+    }*/
 }

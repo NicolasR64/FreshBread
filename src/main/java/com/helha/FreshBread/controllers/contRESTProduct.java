@@ -9,7 +9,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/product")
 public class contRESTProduct {
-    private final RepoProduct repository;
+    /*private final RepoProduct repository;
     contRESTProduct(RepoProduct repository) {
         this.repository = repository;
     }
@@ -48,6 +48,5 @@ public class contRESTProduct {
     @DeleteMapping(value = "/{id}")
     public void deleteProduct(@PathVariable("id") long id){
         this.repository.deleteById(id);
-    }
-}
+    }*/
 }

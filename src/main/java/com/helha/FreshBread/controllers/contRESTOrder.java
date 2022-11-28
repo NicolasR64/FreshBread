@@ -8,7 +8,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/order")
 public class contRESTOrder{
-    private final RepoOrder repository;
+    /*private final RepoOrder repository;
     contRESTOrder(RepoOrder repository) {
         this.repository = repository;
     }
@@ -48,5 +48,5 @@ public class contRESTOrder{
     public void deleteOrder(@PathVariable("id") long id){
             this.repository.deleteById(id);
             }
-    }
+    }*/
 }
