@@ -25,7 +25,7 @@ public class Implantation {
         this.name = "";
         this.address = "";
     }
-    public Implantation(String name, String address) {
+    private Implantation(String name, String address) {
         this.name = name;
         this.address = address;
     }

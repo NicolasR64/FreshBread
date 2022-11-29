@@ -2,6 +2,7 @@ package com.helha.FreshBread.controllers;
 
 import com.helha.FreshBread.models.Implantation;
 import com.helha.FreshBread.repositorys.RepoImplantation;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,14 +34,13 @@ public class contRESTImplantation {
     }
 
     @PutMapping(value = "/{id}")
-    public Optional<Implantation> putImplantationById(@RequestBody Implantation implantation, @PathVariable("id") long id){
+    public Optional<Implantation> putImplantationById(@RequestBody Implantation newImplantation, @PathVariable("id") long id){
 
         return this.repository.findById(id)
-                .map(newImplantation -> {
-                    newImplantation.setId(id);
-                    newImplantation.setName(implantation.getName());
-                    newImplantation.setAddress(implantation.getAddress());
-                    return repository.save(newImplantation);
+                .map(implantation -> {
+                    implantation.setName(newImplantation.getName());
+                    implantation.setAddress(newImplantation.getAddress());
+                    return repository.save(implantation);
                 });
     }
 
