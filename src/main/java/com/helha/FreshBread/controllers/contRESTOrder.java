@@ -1,14 +1,16 @@
 package com.helha.FreshBread.controllers;
 
 import com.helha.FreshBread.models.Order;
+import com.helha.FreshBread.repositorys.RepoOrder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
 public class contRESTOrder{
-    /*private final RepoOrder repository;
+    private final RepoOrder repository;
     contRESTOrder(RepoOrder repository) {
         this.repository = repository;
     }
@@ -34,7 +36,6 @@ public class contRESTOrder{
 
             return this.repository.findById(id)
             .map(newOrder -> {
-                newOrder.setId(id);
                 newOrder.setDate(order.getDate());
                 newOrder.setImplantation(order.getImplantation());
                 newOrder.setProducts(order.getProducts());
@@ -48,5 +49,4 @@ public class contRESTOrder{
     public void deleteOrder(@PathVariable("id") long id){
             this.repository.deleteById(id);
             }
-    }*/
-}
+    }
