@@ -16,17 +16,17 @@ public class Bakery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String name;
     private String address;
 
-    private int userId;
+    private long userId;
 
     // Contructor
 
     public Bakery(){}
 
-    public Bakery(String name, String address, int userId) {
+    public Bakery(String name, String address, long userId) {
         this.name = name;
         this.address = address;
         this.userId = userId;
