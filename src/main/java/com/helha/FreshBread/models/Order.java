@@ -14,7 +14,7 @@ public class Order {
     // Attribute
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private LocalDateTime date;
     @ManyToOne
     @JoinColumn(name = "location_id")
@@ -22,13 +22,13 @@ public class Order {
     private String products;
     private String state;
 
-    private int userId;
+    private long userId;
 
     // Contructor
 
     public Order(){}
 
-    public Order(LocalDateTime date, Location location, String products, String state, int userId) {
+    public Order(LocalDateTime date, Location location, String products, String state, long userId) {
         this.date = LocalDateTime.now();
         this.location = location;
         this.products = products;
