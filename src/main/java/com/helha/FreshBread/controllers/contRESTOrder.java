@@ -37,7 +37,7 @@ public class contRESTOrder{
             return this.repository.findById(id)
             .map(newOrder -> {
                 newOrder.setDate(order.getDate());
-                newOrder.setImplantation(order.getImplantation());
+                newOrder.setLocation(order.getLocation());
                 newOrder.setProducts(order.getProducts());
                 newOrder.setState(order.getState());
                 newOrder.setUserId(order.getUserId());
