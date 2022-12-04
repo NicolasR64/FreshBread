@@ -17,8 +17,8 @@ public class Order {
     private int id;
     private LocalDateTime date;
     @ManyToOne
-    @JoinColumn(name = "implantation_id")
-    private Implantation implantation;
+    @JoinColumn(name = "location_id")
+    private Location location;
     private String products;
     private String state;
 
@@ -28,9 +28,9 @@ public class Order {
 
     public Order(){}
 
-    public Order(LocalDateTime date, Implantation implantation, String products, String state, int userId) {
+    public Order(LocalDateTime date, Location location, String products, String state, int userId) {
         this.date = LocalDateTime.now();
-        this.implantation = implantation;
+        this.location = location;
         this.products = products;
         this.state = state;
         this.userId = userId;

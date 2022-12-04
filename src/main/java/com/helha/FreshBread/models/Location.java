@@ -2,14 +2,13 @@ package com.helha.FreshBread.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-public class Implantation {
+public class Location {
     // Attribute
 
     @Id
@@ -21,11 +20,11 @@ public class Implantation {
     private String address;
 
     // Contructor
-    public Implantation(){
+    public Location(){
         this.name = "";
         this.address = "";
     }
-    private Implantation(String name, String address) {
+    private Location(String name, String address) {
         this.name = name;
         this.address = address;
     }
