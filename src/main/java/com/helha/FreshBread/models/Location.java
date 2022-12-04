@@ -19,6 +19,8 @@ public class Location {
 
     private String address;
 
+    private Long bakeryId;
+
     // Contructor
     public Location(){
         this.name = "";
